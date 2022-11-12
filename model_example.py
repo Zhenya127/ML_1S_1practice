@@ -1,4 +1,5 @@
 """
+Мы команда лучше всех, нас ждет большой успех
 Test example of pretrained model
 """
 
