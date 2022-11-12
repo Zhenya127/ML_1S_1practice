@@ -1,5 +1,5 @@
 """
-Test example of pretrained model.
+Test example of pretrained model
 """
 
 import torch
