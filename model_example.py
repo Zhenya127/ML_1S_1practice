@@ -5,13 +5,12 @@ Test example of pretrained model
 
 import torch
 from torchvision import transforms
-import torch
 import urllib
 from PIL import Image
 
 
 model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True,
-                       **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+                       **{'topN': 6, 'device': 'cpu', 'num_classes': 200})
 
 transform_test = transforms.Compose([
     transforms.Resize((600, 600), Image.BILINEAR),
@@ -22,7 +21,8 @@ transform_test = transforms.Compose([
 ])
 
 
-model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet',
+                       pretrained=True, **{'topN': 6, 'device': 'cpu', 'num_classes': 200})
 model.eval()
 
 url = 'https://raw.githubusercontent.com/nicolalandro/ntsnet-cub200/master/images/nts-net.png'
@@ -31,7 +31,8 @@ scaled_img = transform_test(img)
 torch_images = scaled_img.unsqueeze(0)
 
 with torch.no_grad():
-    top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(torch_images)
+    top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(
+        torch_images)
 
     _, predict = torch.max(concat_logits, 1)
     pred_id = predict.item()
