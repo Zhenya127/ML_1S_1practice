@@ -1,16 +1,17 @@
 """
+Мы команда лучше всех, нас ждет большой успех!!!
 Test example of pretrained model
 """
 
 import torch
 from torchvision import transforms
-import torch
 import urllib
 from PIL import Image
+import unittest
 
 
 model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True,
-                       **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+                       **{'topN': 6, 'device': 'cpu', 'num_classes': 200})
 
 transform_test = transforms.Compose([
     transforms.Resize((600, 600), Image.BILINEAR),
@@ -21,7 +22,8 @@ transform_test = transforms.Compose([
 ])
 
 
-model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet',
+                       pretrained=True, **{'topN': 6, 'device': 'cpu', 'num_classes': 200})
 model.eval()
 
 url = 'https://raw.githubusercontent.com/nicolalandro/ntsnet-cub200/master/images/nts-net.png'
@@ -30,8 +32,23 @@ scaled_img = transform_test(img)
 torch_images = scaled_img.unsqueeze(0)
 
 with torch.no_grad():
-    top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(torch_images)
+    top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(
+        torch_images)
 
     _, predict = torch.max(concat_logits, 1)
     pred_id = predict.item()
-    print('bird class:', model.bird_classes[pred_id])
+    my_bird_class = model.bird_classes[pred_id]
+    print('bird class:', my_bird_class)
+
+
+class TestBirdClassifier(unittest.TestCase):
+    '''Test suite for bird classifier'''
+
+    def test_result_range(self):
+        self.assertTrue(pred_id < len(model.bird_classes))
+
+    def test_result(self):
+        self.assertEqual(my_bird_class, '153.Philadelphia_Vireo')
+
+
+unittest.main()
