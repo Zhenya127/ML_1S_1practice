@@ -1,4 +1,4 @@
-# Practice 1 (Birds classification)!
+# Practice 1 (Birds classification)
 
 Программа классифицирует птиц
 
