@@ -15,6 +15,10 @@ Web-приложение, которое генерирует заданное �
 
 ## Starting the Application
 
+### Text Generator
+
+`uvicorn text_generator:app`
+
 ### Fashion Generator
 
 `streamlit run fashion_generator_app.py`
