@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from transformers import pipeline, set_seed
 from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
 
 set_seed(42)
 class Item(BaseModel):
@@ -29,4 +30,6 @@ def description():
 
 @app.post("/predict/")
 def predict(item: Item):
-    return generator(item.text, max_length=40, num_return_sequences=3)
+    return generator(item.text, max_length=40, num_return_sequences=1)
+
+app.mount("/client", StaticFiles(directory="text_generator_client"), name="client")
