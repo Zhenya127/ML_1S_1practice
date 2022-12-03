@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from transformers import pipeline, set_seed
+from starlette.responses import RedirectResponse
 from pydantic import BaseModel
+from starlette.status import HTTP_302_FOUND
 
 set_seed(42)
 class Item(BaseModel):
@@ -11,7 +13,7 @@ generator = pipeline('text-generation', model='gpt2')
 
 @app.get("/")
 def root():
-    return {"message": "API application for text generator"}
+    return RedirectResponse(url="/docs/", status_code=HTTP_302_FOUND)
 
 @app.get("/description/")
 def description():
