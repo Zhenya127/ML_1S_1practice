@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from transformers import pipeline, set_seed
 from starlette.responses import RedirectResponse
 from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
 from starlette.status import HTTP_302_FOUND
 
 set_seed(42)
@@ -13,7 +14,7 @@ generator = pipeline('text-generation', model='gpt2')
 
 @app.get("/")
 def root():
-    return RedirectResponse(url="/docs/", status_code=HTTP_302_FOUND)
+    return RedirectResponse(url="/client/index.html", status_code=HTTP_302_FOUND)
 
 @app.get("/description/")
 def description():
@@ -31,4 +32,6 @@ def description():
 
 @app.post("/predict/")
 def predict(item: Item):
-    return generator(item.text, max_length=40, num_return_sequences=3)
+    return generator(item.text, max_length=40, num_return_sequences=1)
+
+app.mount("/client", StaticFiles(directory="text_generator_client"), name="client")
