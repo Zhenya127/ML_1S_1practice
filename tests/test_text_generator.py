@@ -20,3 +20,9 @@ def test_description():
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
+    
+def test_generate():
+    passed_text = 'I love women'
+    response = client.post('/predict/', json={'text': passed_text})
+    assert response.status_code == 200
+    assert passed_text in response.json()[0]['generated_text']
