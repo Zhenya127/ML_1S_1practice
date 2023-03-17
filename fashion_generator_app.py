@@ -14,11 +14,12 @@ def load_model():
 
 
 def generate_images(n: int):
-    '''Generates a list of images and displayes 
-        Parameters:
-            n (int): number of images to be generated
-        Returns:
-            (tensor): an array of generated images
+    '''
+    Generates a list of images and displayes
+    Parameters:
+        n (int): number of images to be generated
+    Returns:
+        (tensor): an array of generated images
 
     '''
     noise, _ = model.buildNoiseData(n)
