@@ -5,7 +5,11 @@ import streamlit as st
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    use_gpu = True if torch.cuda.is_available() else False
+    '''
+    Loads pretrained model.
+    '''
+    
+    use_gpu = torch.cuda.is_available()
     model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
                            'DCGAN',
                            pretrained=True,
@@ -45,8 +49,9 @@ imgs = []
 
 st.title('FASHIONGEN')
 
-number_of_images_field = st.number_input(
-    'Количество изображений', value=0, min_value=0)
+number_of_images_field = st.number_input('Количество изображений', 
+                                         value=0, 
+                                         min_value=0)
 
 btn_col_1, btn_col_2 = st.columns(2)
 
