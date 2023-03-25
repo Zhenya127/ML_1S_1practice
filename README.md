@@ -26,3 +26,5 @@ API-приложение, которое генерирует текст по н
 Run as a script and execute unit tests
 
 `python model_example.py`
+
+Коммит для создания PR в fork
