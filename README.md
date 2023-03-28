@@ -1,3 +1,4 @@
+![Tests](https://github.com/Zhenya127/ML_1S_1practice/actions/workflows/python-app.yml/badge.svg)
 
 # Group-11 Project
 Монорепозиторий для семестровых проектов. 
