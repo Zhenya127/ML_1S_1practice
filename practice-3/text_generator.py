@@ -48,5 +48,5 @@ def predict(item: Item):
 
 
 app.mount("/client",
-          StaticFiles(directory="text_generator_client"),
+          StaticFiles(directory="./text_generator_client"),
           name="client")
