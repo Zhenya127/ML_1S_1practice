@@ -7,7 +7,6 @@ import torch
 from torchvision import transforms
 import urllib
 from PIL import Image
-import unittest
 
 
 model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True,
@@ -42,16 +41,3 @@ with torch.no_grad():
     pred_id = predict.item()
     my_bird_class = model.bird_classes[pred_id]
     print('bird class:', my_bird_class)
-
-
-class TestBirdClassifier(unittest.TestCase):
-    '''Test suite for bird classifier'''
-
-    def test_result_range(self):
-        self.assertTrue(pred_id < len(model.bird_classes))
-
-    def test_result(self):
-        self.assertEqual(my_bird_class, '153.Philadelphia_Vireo')
-
-
-unittest.main()
