@@ -15,16 +15,22 @@
 
 API-приложение, которое генерирует текст по начальной фразе пользователя на английском языке с помощью библиотеки Hugging Face.
 
+`cd practice-3`
+
 `uvicorn text_generator:app`
 
 ### Practice 2 - Fashion Generator
 API-приложение, которое генерирует текст по начальной фразе пользователя на английском языке с помощью библиотеки Hugging Face.
+
+`cd practice-2`
 
 `streamlit run fashion_generator_app.py`
 
 ### Practice 1 - Bird Classifier
 
 Run as a script and execute unit tests
+
+`cd practice-1`
 
 `python model_example.py`
 
