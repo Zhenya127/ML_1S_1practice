@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from text_generator import app
+from practice_3.text_generator import app
 
 client = TestClient(app)
 

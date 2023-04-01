@@ -1,6 +1,6 @@
 import pytest
 
-import model_example
+from practice_1.model_example import model_example
 
 class TestBirdClassifier:
     '''Test suite for bird classifier'''
