@@ -1,4 +1,4 @@
-const url = 'http://51.250.110.185:8000/predict';
+const url = 'http://127.0.0.1:8000/predict';
 
 const input = document.getElementById('gen__input');
 const result = document.getElementById('gen__result');
