@@ -42,9 +42,9 @@ def test_team_info():
     assert response.json() == {
         'name': 'Cobra Kai',
         'members': [
-            { 'full_name': 'Danil Makushev', 'role': 'main developer' },
-            { 'full_name': 'Evgenia Prasolova', 'role': 'analyst' },
-            { 'full_name': 'Semen Bakulin', 'role': 'secondary developer' },
-            { 'full_name': 'Denis Tryapitsyn', 'role': 'project manager' }
+            {'full_name': 'Danil Makushev', 'role': 'developer'},
+            {'full_name': 'Evgenia Prasolova', 'role': 'analyst'},
+            {'full_name': 'Semen Bakulin', 'role': 'developer'},
+            {'full_name': 'Denis Tryapitsyn', 'role': 'project manager'}
         ]
     }

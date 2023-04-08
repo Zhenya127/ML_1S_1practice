@@ -4,13 +4,32 @@
 
 html,
 body {
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #24292f;
+    background: #0f2027; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to left top,
+        #0f2027,
+        #203a43,
+        #2c5364
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to left top,
+        #0f2027,
+        #203a43,
+        #2c5364
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Red Hat Text', sans-serif;
+}
+
+:root {
+    --input-width: 20rem;
+    --container-height: 30rem;
+    --input-gap: 1rem;
 }
 
 main {
@@ -30,7 +49,7 @@ main {
 }
 
 .gen__field {
-    width: 20rem;
+    width: var(--input-width);
     height: 15rem;
     background-color: white;
     border: 1px solid lightgray;
@@ -42,7 +61,7 @@ main {
 .gen__in {
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
+    margin-right: var(--input-gap);
 }
 
 #gen__start {
@@ -58,12 +77,39 @@ main {
     cursor: pointer;
 }
 
-.gen__title {
+.section-container {
+    padding: 0rem 0.5rem;
+    width: calc(var(--input-width) * 2 + var(--input-gap));
+}
+
+.section-header {
     color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-button {
+    border: 0;
+    border-radius: 0.2rem;
+    max-width: fit-content;
+    padding: 0.5rem 1rem;
+}
+
+.header-button:hover {
+    cursor: pointer;
+}
+
+.team__list-item {
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+.--hidden {
+    display: none;
 }
 
 @media (max-width: 800px) {
-    .gen__container {
+    .section-container {
         width: 100%;
     }
 

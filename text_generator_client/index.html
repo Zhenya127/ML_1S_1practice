@@ -4,13 +4,25 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="styles.css" />
         <title>Text generator</title>
     </head>
     <body>
         <main>
-            <div class="gen__container">
-                <h1 class="gen__title">Text generator</h1>
+            <section class="section-container" id="gen-container">
+                <h1 class="section-header">
+                    Text generator
+                    <button class="header-button" onclick="getTeamInfo()">
+                        Team
+                    </button>
+                </h1>
                 <div class="gen__content">
                     <section class="gen__in">
                         <textarea
@@ -26,7 +38,16 @@
                         <p id="gen__result"></p>
                     </section>
                 </div>
-            </div>
+            </section>
+            <section class="section-container --hidden" id="team-container">
+                <h1 class="section-header">
+                    Team
+                    <button class="header-button" onclick="showApp()">
+                        Back to App
+                    </button>
+                </h1>
+                <ul id="team__list"></ul>
+            </section>
         </main>
         <script src="app.js"></script>
     </body>
