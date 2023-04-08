@@ -47,6 +47,19 @@ def predict(item: Item):
     return generator(item.text, max_length=40, num_return_sequences=1)
 
 
+@app.get('/about-team')
+async def team_info():
+    return {
+        'name': 'Cobra Kai',
+        'members': [
+            { 'full_name': 'Danil Makushev', 'role': 'main developer' },
+            { 'full_name': 'Evgenia Prasolova', 'role': 'analyst' },
+            { 'full_name': 'Semen Bakulin', 'role': 'secondary developer' },
+            { 'full_name': 'Denis Tryapitsyn', 'role': 'project manager' }
+        ]
+    }
+
+
 app.mount("/client",
           StaticFiles(directory="text_generator_client"),
           name="client")
