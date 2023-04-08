@@ -34,3 +34,17 @@ def test_generate():
     response = client.post('/predict/', json={'text': passed_text})
     assert response.status_code == 200
     assert passed_text in response.json()[0]['generated_text']
+
+
+def test_team_info():
+    response = client.get("/about-team")
+    assert response.status_code == 200
+    assert response.json() == {
+        'name': 'Cobra Kai',
+        'members': [
+            { 'full_name': 'Danil Makushev', 'role': 'main developer' },
+            { 'full_name': 'Evgenia Prasolova', 'role': 'analyst' },
+            { 'full_name': 'Semen Bakulin', 'role': 'secondary developer' },
+            { 'full_name': 'Denis Tryapitsyn', 'role': 'project manager' }
+        ]
+    }
