@@ -23,7 +23,7 @@ function generateText() {
             .catch((err) => {
                 result.innerText = 'Что-то пошло не так';
                 console.log(err);
-             })
+             });
     } else {
         result.innerText = '';
     }
