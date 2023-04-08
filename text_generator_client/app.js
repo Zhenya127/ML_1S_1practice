@@ -19,7 +19,11 @@ function generateText() {
             .then((res) => {
                 result.innerText = res[0]?.generated_text;
                 console.log(res);
-            });
+            })
+            .catch((err) => {
+                result.innerText = 'Что-то пошло не так';
+                console.log(err);
+             })
     } else {
         result.innerText = '';
     }
