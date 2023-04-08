@@ -74,6 +74,7 @@ main {
     .gen__content {
         display: flex;
         flex-direction: column;
+        margin: 1rem;
     }
 
     .gen__field {
