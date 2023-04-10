@@ -52,9 +52,9 @@ async def team_info():
     return {
         'name': 'Cobra Kai',
         'members': [
-            { 'full_name': 'Danil Makushev', 'role': 'main developer' },
+            { 'full_name': 'Danil Makushev', 'role': 'developer' },
             { 'full_name': 'Evgenia Prasolova', 'role': 'analyst' },
-            { 'full_name': 'Semen Bakulin', 'role': 'secondary developer' },
+            { 'full_name': 'Semen Bakulin', 'role': 'developer' },
             { 'full_name': 'Denis Tryapitsyn', 'role': 'project manager' }
         ]
     }
